@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container weather-app">
+        <form class="form-style" id="search-form">
+            <div class="row">
+                <div class="col-6">
+                    <input type="search" placeholder="Type a city.." autofocus="on" class="form-control shadow-sm" id="search-text-input"/>
+                </div>
+                <div class="col-3">
+                    <input type="submit" value="Search" class="form-control btn btn-primary shadow-sm">
+                </div>
+                </form>
+                <div class="col-3">
+                    <button class=" current" id = "current">Current Location </button>
+                </div>
+            </div>
+       
+        
+        <div class="row">
+
+            <div class="col-4 ">
+                        <img src = "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png">        
+                        <span class="temperature" id="temperature"> </span>
+                        <span class="units">
+                             <a href="" id="celsius-link" >C</a>| 
+                             <a href ="#" id="fahrenheit-link" >F</a>
+                        </span> 
+            </div>
+
+             <div class="col-4">
+                <ul class="weather-info">
+                    <li>
+                        Precipitation: 1%
+                    </li>
+                    <li>
+                        Humidity: <span id = "humidity"></span>%
+                    </li>
+                    <li>   
+                        Wind: <span id = "wind"></span>km/h
+                    </li>
+                </ul>
+             </div>
+
+            <div class="col-4 ">
+               
+                    <h1 id = "city">
+                    </h1>
+                    <ul class="data1">
+                    <li id = "time-format">
+                    </li>
+                    <li class = "description" id = "description">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button">Temperature</button>
+            <button type="button">Precipitation</button>
+            <button type="button">Wind</button>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
