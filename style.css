@@ -31,6 +31,10 @@ img {
   float: left;
 }
 
+link {
+  display: block;
+  margin: 0 auto;
+}
 .weather-app {
   border: 1px solid #7c7c7c;
   max-width: 700px;
