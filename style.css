@@ -31,9 +31,8 @@ img {
   float: left;
 }
 
-link {
-  display: block;
-  margin: 0 auto;
+.link {
+  text-align: center;
 }
 .weather-app {
   border: 1px solid #7c7c7c;
