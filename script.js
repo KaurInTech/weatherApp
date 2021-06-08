@@ -16,21 +16,25 @@ function currentTime(){
 }
 
 
-function convertingF(event){
+function FahrenheitConverter(event){
     event.preventDefault();
-    let temp = document.querySelector("#temp");
-    temp.innerHTML=64;
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    document.querySelector("#temperature").innerHTML= Math.round((temperature * 9/5) + 32);
+ 
 }
 
-function convertingC(event){
+function CelsiusConverter(event){
     event.preventDefault();
-    let temp = document.querySelector("#temp");
-    temp.innerHTML= 14;
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    document.querySelector("#temperature").innerHTML= Math.round(temperature);
 }
 
 function displayWeatherCondition(response) {
     document.querySelector("#city").innerHTML = response.data.name; 
     document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+    temperature = response.data.main.temp;
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
@@ -65,6 +69,8 @@ function getCurrentPosition(){
 document.querySelector("#time-format").innerHTML = currentTime();
 getCurrentPosition();
 
+let temperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit",handleSubmit);
 let button = document.querySelector("#current");
@@ -72,7 +78,7 @@ button.addEventListener("click",getCurrentPosition);
 
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");//LINKINKG TO HTML TO GET ACCESS
-fahrenheitLink.addEventListener("click",convertingF);//PERFORM THIS FUNCTION AFTER CLICKING
+fahrenheitLink.addEventListener("click",FahrenheitConverter);//PERFORM THIS FUNCTION AFTER CLICKING
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click",convertingC);
+celsiusLink.addEventListener("click",CelsiusConverter);
