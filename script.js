@@ -34,7 +34,8 @@ function displayWeatherCondition(response) {
     document.querySelector("#description").innerHTML = response.data.weather[0].description;
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-    console.log(response.data);
+    document.querySelector("#icon").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+    document.querySelector("#icon").setAttribute("alt",response.data.weather[0].description);
     console.log(response.data.wind.speed);
 }
 
