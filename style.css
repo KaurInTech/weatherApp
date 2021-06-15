@@ -27,7 +27,7 @@ ul {
   padding: 0;
 }
 
-img {
+.weather-icon {
   position: relative;
   top: -15px;
 }
