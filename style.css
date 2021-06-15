@@ -102,6 +102,6 @@ a:hover {
 .weather-forecast-temperatures {
   font-size: 13px;
 }
-.weather-forecast-temperatures-minimum {
+.weather-forecast-temperature-min {
   opacity: 0.5;
 }
