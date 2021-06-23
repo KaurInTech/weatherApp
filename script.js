@@ -43,15 +43,15 @@ function displayHourlyForecast(type){
                 if(type=="temp"){
                      forecastHourlyHTML  =
                          forecastHourlyHTML + 
-                             `<div class="col-2">
-                                     <div>
+                             `<div class="col-2" >
+                                     <div id="hourlyTemp${i}">
                              ${Math.round(hourlyTemp[i])}°`
                 }else if(type=="wind"){
                      forecastHourlyHTML  =
                          forecastHourlyHTML + 
                              `<div class="col-2">
                                      <div>
-                             ${Math.round(hourlyWind[i])}°`
+                             ${Math.round(hourlyWind[i])}m/s`
                 }else {
                      forecastHourlyHTML  =
                          forecastHourlyHTML + 
@@ -61,6 +61,9 @@ function displayHourlyForecast(type){
                 }
             forecastHourlyHTML  = forecastHourlyHTML + 
             `
+                </div>
+                 <div>
+                    |
                 </div>
                 <div>
                 ${formatHours(time[i])}
@@ -79,6 +82,7 @@ function hourlyForecast(response){
         hourlyWind.push((forecastHourly[index].wind_speed));
         hourlyTemp.push((forecastHourly[index].temp));
         time.push((forecastHourly[index].dt));
+        console.log(formatHours(time[index]));
     })
     displayHourlyForecast("temp");
 }
@@ -134,6 +138,11 @@ function FahrenheitConverter(event){
     document.querySelector("#maxTemp"+i).innerHTML= Math.round((forecastTempMax[i] *9/5)+32);
     document.querySelector("#minTemp"+i).innerHTML= Math.round((forecastTempMin[i]*9/5)+32);
     }
+    for(let i=0;i<hourlyTemp.length;i++){
+                if(i%3==0 && i<18){
+            document.querySelector("#hourlyTemp"+i).innerHTML= Math.round((hourlyTemp[i] *9/5)+32)+`°`;
+        }
+    }
 }
 
 function CelsiusConverter(event){
@@ -144,6 +153,11 @@ function CelsiusConverter(event){
     document.querySelector("#temperature").innerHTML= Math.round(temperature);
     document.querySelector("#maxTemp"+i).innerHTML= Math.round(forecastTempMax[i]);
     document.querySelector("#minTemp"+i).innerHTML= Math.round(forecastTempMin[i]);
+    }
+     for(let i=0;i<hourlyTemp.length;i++){
+                if(i%3==0 && i<18){
+            document.querySelector("#hourlyTemp"+i).innerHTML= Math.round(hourlyTemp[i])+`°`;
+        }
     }
 
 }
